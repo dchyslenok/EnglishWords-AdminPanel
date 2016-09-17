@@ -1,4 +1,4 @@
-Ext.define('Word', {
+Ext.define('App.model.Word', {
     extend: 'Ext.data.Model',
     fields: [
         {name: 'id',  type: 'int'},

@@ -1,4 +1,4 @@
-Ext.define('Categorie', {
+Ext.define('App.model.Categorie', {
     extend: 'Ext.data.Model',
     fields: [
         {name: 'id',  type: 'int'},

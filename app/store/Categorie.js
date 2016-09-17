@@ -1,6 +1,6 @@
 Ext.define('App.store.Categorie', {
     extend: 'Ext.data.Store',
-    alias: 'store.word',
-    model: 'Categorie',
+    alias: 'store.Categorie',
+    model: 'App.model.Categorie',
     autoLoad: true
 });

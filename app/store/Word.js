@@ -1,6 +1,6 @@
 Ext.define('App.store.Word', {
     extend: 'Ext.data.Store',
-    alias: 'store.categorie',
-    model: 'Word',
+    alias: 'store.Word',
+    model: 'App.model.Word',
     autoLoad: true
 });
