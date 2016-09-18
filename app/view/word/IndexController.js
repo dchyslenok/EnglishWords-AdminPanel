@@ -22,7 +22,7 @@ Ext.define('App.view.word.IndexController.js', {
 
     onSaveAddWord : function () {
         var form = this.lookupReference('wordAdd');
-        var word = Ext.create('Word', form.getForm().getValues());
+        var word = Ext.create('App.model.Word', form.getForm().getValues());
         word.save({
             failure : function (record, operation) {
                 console.log('fail');

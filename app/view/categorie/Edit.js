@@ -1,12 +1,19 @@
-Ext.define('App.view.categorie.Add', {
+Ext.define('App.view.categorie.Edit', {
     extend : 'Ext.form.Panel',
-    xtype : 'categorieAdd',
-    title : 'Add categorie',
-    iconCls : 'fa fa-plus',
+    xtype : 'categorieEdit',
+    title : 'Edit categorie',
+    iconCls : 'fa fa-pencil-square-o',
     layout : 'form',
-    reference : 'categorieAdd',
+    reference : 'categorieEdit',
     hidden : true,
     items : [{
+        xtype : 'hidden',
+        name : 'id'
+    }, {
+        xtype : 'hidden',
+        name : '_method',
+        value : 'PUT'
+    },{
         xtype : 'textfield',
         fieldLabel : 'Categorie name',
         name : 'name',
@@ -16,18 +23,23 @@ Ext.define('App.view.categorie.Add', {
         fieldLabel : 'Image url',
         name : 'imgUrl',
         allowBlank : false
+    },{
+        xtype : 'checkbox',
+        fieldLabel : 'Active',
+        name : 'active',
+        value : false
     }],
     buttons : [{
         xtype : 'button',
         text : 'Save',
         formBind : true,
         iconCls : 'fa fa-floppy-o',
-        handler : 'onAdd'
+        handler : 'onEdit'
     }, {
         xtype : 'button',
         text : 'Cancel',
         iconCls : 'fa fa-times',
-        handler : 'onCancelAdd'
+        handler : 'onCancelEdit'
     }],
     listeners : {}
 });

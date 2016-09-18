@@ -3,7 +3,7 @@ Ext.define('App.view.categorie.Grid', {
     xtype : 'categorielist',
     title : 'Categories',
     store : "Categorie",
-    reference : 'categorielist',
+    reference : 'categorieList',
     columns : [{
         text : 'Id',
         dataIndex : 'id',
@@ -41,14 +41,21 @@ Ext.define('App.view.categorie.Grid', {
         text: 'Add',
         tooltip: 'Add new categorie',
         iconCls : 'fa fa-plus',
-        handler: 'onShowAddCategorie'
+        handler: 'onOpenAddForm'
     }, {
         text: 'Edit',
         tooltip: 'Edit categorie',
         iconCls : 'fa fa-pencil-square-o',
         reference: 'btnEdit',
         disabled: true,
-        handler: 'onShowEditCategorie'
+        handler: 'onOpenEditForm'
+    },{
+        text: 'Delete',
+        tooltip: 'Delete categorie',
+        iconCls : 'fa fa-pencil-square-o',
+        reference: 'btnDelete',
+        disabled: true,
+        handler: 'onDelete'
     }],
 
     listeners : {
