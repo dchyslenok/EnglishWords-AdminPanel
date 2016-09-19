@@ -1,10 +1,10 @@
-Ext.define('App.view.word.Add', {
+Ext.define('App.view.word.Edit', {
     extend : 'Ext.form.Panel',
-    xtype : 'wordAdd',
-    title : 'Add word',
-    iconCls : 'fa fa-plus',
+    xtype : 'wordEdit',
+    title : 'Edit word',
+    iconCls : 'fa fa-pencil-square-o',
     layout : 'form',
-    reference : 'wordAdd',
+    reference : 'wordEdit',
     hidden : true,
     items : [{
         xtype : 'combobox',
@@ -43,12 +43,12 @@ Ext.define('App.view.word.Add', {
         text : 'Save',
         formBind : true,
         iconCls : 'fa fa-floppy-o',
-        handler : 'onAdd'
+        handler : 'onEdit'
     }, {
         xtype : 'button',
         text : 'Cancel',
         iconCls : 'fa fa-times',
-        handler : 'onCancelAdd'
+        handler : 'onCancelEdit'
     }],
     listeners : {}
 });

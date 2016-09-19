@@ -3,7 +3,7 @@ Ext.define('App.view.word.Grid', {
     xtype : 'wordlist',
     title : 'Words',
     store : "Word",
-    reference : 'wordlist',
+    reference : 'wordList',
     columns : [{
         text : 'Id',
         dataIndex : 'id',
@@ -46,14 +46,21 @@ Ext.define('App.view.word.Grid', {
         text: 'Add',
         tooltip: 'Add new categorie',
         iconCls : 'fa fa-plus',
-        handler: 'onShowAddWord'
+        handler: 'onOpenAddForm'
     }, {
         text: 'Edit',
         tooltip: 'Edit categorie',
         iconCls : 'fa fa-pencil-square-o',
         reference: 'btnEdit',
         disabled: true,
-        handler: 'onShowEditWord'
+        handler: 'onOpenEditForm'
+    },{
+        text: 'Delete',
+        tooltip: 'Delete categorie',
+        iconCls : 'fa fa-pencil-square-o',
+        reference: 'btnDelete',
+        disabled: true,
+        handler: 'onDelete'
     }],
     listeners : {
         select : 'onItemSelected'

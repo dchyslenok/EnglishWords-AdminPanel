@@ -5,22 +5,31 @@ Ext.define('App.view.word.IndexController.js', {
 
     onItemSelected : function (sender, record) {
         this.lookupReference('btnEdit').enable();
-
-        // Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
     },
 
-    onShowAddWord : function () {
+    onOpenAddForm : function () {
         this.lookupReference('wordAdd').show();
-        this.lookupReference('wordlist').hide();
+        this.lookupReference('wordList').hide();
     },
 
-    onCancelAddWord : function () {
+    onOpenEditForm : function () {
+        this.lookupReference('wordEdit').show();
+        this.lookupReference('wordList').hide();
+    },
+
+    onCancelAdd : function () {
         this.lookupReference('wordAdd').reset();
         this.lookupReference('wordAdd').hide();
-        this.lookupReference('wordlist').show();
+        this.lookupReference('wordList').show();
     },
 
-    onSaveAddWord : function () {
+    onCancelEdit : function () {
+        this.lookupReference('wordEdit').reset();
+        this.lookupReference('wordEdit').hide();
+        this.lookupReference('wordList').show();
+    },
+
+    onAdd : function () {
         var form = this.lookupReference('wordAdd');
         var word = Ext.create('App.model.Word', form.getForm().getValues());
         word.save({
@@ -36,13 +45,35 @@ Ext.define('App.view.word.IndexController.js', {
 
         if (!form.hidden) {
             form.hide();
-            this.lookupReference('wordlist').show();
+            this.lookupReference('wordList').show();
         }
     },
 
-    onConfirm : function (choice) {
+    onDelete : function () {
+        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onDeleteConfirm', this);
+    },
+
+    onDeleteConfirm : function (choice) {
         if (choice === 'yes') {
-            //
+            var grid = this.lookupReference('wordList');
+            var data = grid.getSelectionModel().getSelection()[0].data;
+            var word = Ext.create('App.model.Word', data);
+
+            word.erase({
+                success : function (record, operation) {
+                    var response = Ext.decode(operation._response.responseText);
+                    if (!response.result) {
+                        Ext.Msg.alert('Status', response.massage);
+                    }
+                }
+            });
+            Ext.StoreManager.lookup('Categorie').reload();
         }
+    },
+    
+    onUploadFile : function () {
+
+
+        
     }
 });
