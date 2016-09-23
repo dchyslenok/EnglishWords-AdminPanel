@@ -3,31 +3,56 @@ Ext.define('App.view.categorie.Edit', {
     xtype : 'categorieEdit',
     title : 'Edit categorie',
     iconCls : 'fa fa-pencil-square-o',
-    layout : 'form',
+    layout : 'hbox',
     reference : 'categorieEdit',
     hidden : true,
     items : [{
-        xtype : 'hidden',
-        name : 'id'
+        xtype : 'panel',
+        layout : 'form',
+        flex : 1,
+        items : [{
+            xtype : 'hidden',
+            name : 'id'
+        }, {
+            xtype : 'hidden',
+            name : '_method',
+            value : 'PUT'
+        },{
+            xtype : 'textfield',
+            fieldLabel : 'Categorie name',
+            name : 'name',
+            allowBlank : false
+        }, {
+            xtype : 'textfield',
+            fieldLabel : 'Image url',
+            name : 'imgUrl',
+            allowBlank : false
+        },{
+            reference: 'fileUpload',
+            xtype: 'filefield',
+            name: 'photo',
+            fieldLabel: 'Photo',
+            labelWidth: 50,
+            msgTarget: 'side',
+            allowBlank: false,
+            anchor: '100%',
+            buttonText: 'Select Photo...',
+            listeners: {
+                change: 'onUploadFile'
+            }
+        },{
+            xtype : 'checkbox',
+            fieldLabel : 'Active',
+            name : 'active',
+            value : false
+        }]
     }, {
-        xtype : 'hidden',
-        name : '_method',
-        value : 'PUT'
-    },{
-        xtype : 'textfield',
-        fieldLabel : 'Categorie name',
-        name : 'name',
-        allowBlank : false
-    }, {
-        xtype : 'textfield',
-        fieldLabel : 'Image url',
-        name : 'imgUrl',
-        allowBlank : false
-    },{
-        xtype : 'checkbox',
-        fieldLabel : 'Active',
-        name : 'active',
-        value : false
+        xtype: 'container',
+        reference : 'image',
+        margin : 10,
+        width: 202.33,
+        height: 202.33,
+        html: '<img src="http://camaleon.tuzitio.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png" style="border: solid 5px #d0d0d0;" height="201.33" width="201.33">'
     }],
     buttons : [{
         xtype : 'button',
