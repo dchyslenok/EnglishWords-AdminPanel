@@ -24,22 +24,16 @@ Ext.define('App.view.categorie.Edit', {
             allowBlank : false
         }, {
             xtype : 'textfield',
+            reference : 'ImgUrl',
             fieldLabel : 'Image url',
+            editable : false,
             name : 'imgUrl',
             allowBlank : false
         },{
-            reference: 'fileUpload',
-            xtype: 'filefield',
-            name: 'photo',
-            fieldLabel: 'Photo',
-            labelWidth: 50,
-            msgTarget: 'side',
-            allowBlank: false,
-            anchor: '100%',
-            buttonText: 'Select Photo...',
-            listeners: {
-                change: 'onUploadFile'
-            }
+          xtype : 'button',
+          text : 'Select image',
+          iconCls : 'fa fa-floppy-o',
+          handler : 'onUploadFile'
         },{
             xtype : 'checkbox',
             fieldLabel : 'Active',
@@ -52,7 +46,12 @@ Ext.define('App.view.categorie.Edit', {
         margin : 10,
         width: 202.33,
         height: 202.33,
-        html: '<img src="http://camaleon.tuzitio.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png" style="border: solid 5px #d0d0d0;" height="201.33" width="201.33">'
+        html: '<img src="http://camaleon.tuzitio.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png" style="border: solid 5px #d0d0d0;" height="201.33" width="201.33">',
+        listeners: {
+            el: {
+                click: 'onUploadFile'
+            }
+        }
     }],
     buttons : [{
         xtype : 'button',

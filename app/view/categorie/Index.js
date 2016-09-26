@@ -5,7 +5,8 @@ Ext.define('App.view.categorie.Index', {
     requires : [
         'App.view.categorie.Grid',
         'App.view.categorie.Add',
-        'App.view.categorie.Edit'
+        'App.view.categorie.Edit',
+        'App.view.main.Uploader'
     ],
     title: 'Categories',
     iconCls: 'fa fa-tags',

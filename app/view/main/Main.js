@@ -7,6 +7,7 @@ Ext.define('App.view.main.Main', {
         'Ext.window.MessageBox',
 
         'App.view.main.MainController',
+        'App.view.main.Uploader',
         'App.view.main.MainModel',
         'App.view.categorie.Index',
         'App.view.word.Index'

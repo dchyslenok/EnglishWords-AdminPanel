@@ -107,33 +107,12 @@ Ext.define('App.view.categorie.IndexController.js', {
     },
 
     onUploadFile : function () {
-        var form = this.lookupReference('categorieEdit');
         var image = this.lookupReference('image');
-        form.mask('Load');
-
-        var file = form.down('filefield').getEl().down('input[type=file]').dom.files[0];
-        var type = file.name.split('.').pop();
-        var FR= new FileReader();
-
-        FR.onload = function(e) {
-            Ext.Ajax.request({
-                url : 'http://englishwords/api_v1/upload/binary',
-                method : 'POST',
-                params : {
-                    data : e.target.result,
-                    type : type,
-                    name : file.name
-                },
-                success : function (response, opts) {
-                    var response = Ext.decode(response.responseText);
-                    image.update('<img src="'+ response.url +'" style="width:201.33px;height:201.33px; border: solid 5px #d0d0d0;">');
-                    form.unmask();
-                },
-                failure : function (response, opts) {
-                    console.log('server-side failure with status code ' + response.status);
-                }
-            });
-        };
-        FR.readAsDataURL(file);
+        var ImgUrl = this.lookupReference('ImgUrl');
+        var uploader = Ext.create('App.view.main.Uploader', function (url) {
+            image.update('<img src="'+ url +'" style="width:201.33px;height:201.33px; border: solid 5px #0097a7;">');
+            ImgUrl.setValue(url);
+        });
+        uploader.show();
     }
 });
