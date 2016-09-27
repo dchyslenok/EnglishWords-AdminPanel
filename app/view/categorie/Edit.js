@@ -24,7 +24,7 @@ Ext.define('App.view.categorie.Edit', {
             allowBlank : false
         }, {
             xtype : 'textfield',
-            reference : 'ImgUrl',
+            reference : 'imgUrlEdit',
             fieldLabel : 'Image url',
             editable : false,
             name : 'imgUrl',
@@ -37,14 +37,14 @@ Ext.define('App.view.categorie.Edit', {
         }]
     }, {
         xtype: 'container',
-        reference : 'image',
+        reference : 'imageEdit',
         margin : 10,
         width: 202.33,
         height: 202.33,
         html: '<img src="http://englishwords/storage/image/FotorCreated.jpg" height="201.33" width="201.33">',
         listeners: {
             el: {
-                click: 'onUploadFile'
+                click: 'onUploadFileEdit'
             }
         }
     }],

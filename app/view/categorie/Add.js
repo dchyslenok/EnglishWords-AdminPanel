@@ -3,19 +3,37 @@ Ext.define('App.view.categorie.Add', {
     xtype : 'categorieAdd',
     title : 'Add categorie',
     iconCls : 'fa fa-plus',
-    layout : 'form',
+    layout : 'hbox',
     reference : 'categorieAdd',
     hidden : true,
     items : [{
-        xtype : 'textfield',
-        fieldLabel : 'Categorie name',
-        name : 'name',
-        allowBlank : false
+        xtype : 'panel',
+        layout : 'form',
+        flex : 1,
+        items : [{
+            xtype : 'textfield',
+            fieldLabel : 'Categorie name',
+            name : 'name',
+            allowBlank : false
+        }, {
+            xtype : 'textfield',
+            reference : 'imgUrlAdd',
+            fieldLabel : 'Image url',
+            name : 'imgUrl',
+            allowBlank : false
+        }]
     }, {
-        xtype : 'textfield',
-        fieldLabel : 'Image url',
-        name : 'imgUrl',
-        allowBlank : false
+        xtype: 'container',
+        reference: 'imageAdd',
+        margin : 10,
+        width: 202.33,
+        height: 202.33,
+        html: '<img src="http://englishwords/storage/image/FotorCreated.jpg" height="201.33" width="201.33">',
+        listeners: {
+            el: {
+                click: 'onUploadFileAdd'
+            }
+        }
     }],
     buttons : [{
         xtype : 'button',
