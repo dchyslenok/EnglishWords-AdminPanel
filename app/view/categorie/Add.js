@@ -20,15 +20,17 @@ Ext.define('App.view.categorie.Add', {
             reference : 'imgUrlAdd',
             fieldLabel : 'Image url',
             name : 'imgUrl',
+            editable : false,
             allowBlank : false
         }]
     }, {
-        xtype: 'container',
+        xtype: 'image',
         reference: 'imageAdd',
-        margin : 10,
-        width: 202.33,
-        height: 202.33,
-        html: '<img src="http://englishwords/storage/image/FotorCreated.jpg" height="201.33" width="201.33">',
+        src: 'resources/images/selectImage.jpg',
+        width: 201,
+        height: 201,
+        margin: 10,
+        style: 'border: 5px solid #0097a7',
         listeners: {
             el: {
                 click: 'onUploadFileAdd'

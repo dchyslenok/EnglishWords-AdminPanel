@@ -85,9 +85,10 @@ Ext.define('App.view.categorie.IndexController.js', {
                     if (!response.result) {
                         Ext.Msg.alert('Status', response.massage);
                     }
+                    Ext.StoreManager.lookup('Categorie').reload();
                 }
             });
-            Ext.StoreManager.lookup('Categorie').reload();
+
         }
     },
 
@@ -96,6 +97,7 @@ Ext.define('App.view.categorie.IndexController.js', {
             this.lookupReference('categorieAdd').reset();
             this.lookupReference('categorieAdd').hide();
             this.lookupReference('categorieList').show();
+            this.lookupReference('imageAdd').setSrc('resources/images/selectImage.jpg');
         }
     },
 
@@ -113,7 +115,7 @@ Ext.define('App.view.categorie.IndexController.js', {
         var ImgUrl = this.lookupReference('imgUrlEdit');
 
         var uploader = Ext.create('App.view.main.Uploader', function (url) {
-            image.update('<img src="'+ url +'" style="width:201.33px;height:201.33px; border: solid 5px #0097a7;">');
+            image.setSrc(url);
             ImgUrl.setValue(url);
         });
         uploader.show();
@@ -124,7 +126,7 @@ Ext.define('App.view.categorie.IndexController.js', {
         var ImgUrl = this.lookupReference('imgUrlAdd');
 
         var uploader = Ext.create('App.view.main.Uploader', function (url) {
-            image.update('<img src="'+ url +'" style="width:201.33px;height:201.33px; border: solid 5px #0097a7;">');
+            image.setSrc(url);
             ImgUrl.setValue(url);
         });
         uploader.show();
