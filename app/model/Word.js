@@ -9,7 +9,8 @@ Ext.define('App.model.Word', {
         {name: 'imgUrl', type: 'string'},
         {name: 'active', type: 'string'},
         {name: 'created_at', type: 'date'},
-        {name: 'created_at', type: 'date'}
+        {name: 'created_at', type: 'date'},
+        {name: 'categorie',  type: 'auto'},
     ],
 
     proxy: {

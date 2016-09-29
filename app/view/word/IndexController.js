@@ -13,8 +13,9 @@ Ext.define('App.view.word.IndexController.js', {
     },
 
     onOpenEditForm : function () {
-        this.lookupReference('wordEdit').show();
+        var form = this.lookupReference('wordEdit')
         this.lookupReference('wordList').hide();
+        form.show();
     },
 
     onCancelAdd : function () {
@@ -70,10 +71,26 @@ Ext.define('App.view.word.IndexController.js', {
             Ext.StoreManager.lookup('Categorie').reload();
         }
     },
-    
-    onUploadFile : function () {
 
+    onUploadFileEdit : function () {
+        var image = this.lookupReference('imageEdit');
+        var ImgUrl = this.lookupReference('imgUrlEdit');
 
-        
+        var uploader = Ext.create('App.view.main.Uploader', function (url) {
+            image.setSrc(url);
+            ImgUrl.setValue(url);
+        });
+        uploader.show();
+    },
+
+    onUploadFileAdd : function () {
+        var image = this.lookupReference('imageAdd');
+        var ImgUrl = this.lookupReference('imgUrlAdd');
+
+        var uploader = Ext.create('App.view.main.Uploader', function (url) {
+            image.setSrc(url);
+            ImgUrl.setValue(url);
+        });
+        uploader.show();
     }
 });
