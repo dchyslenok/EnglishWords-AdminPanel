@@ -4,14 +4,19 @@ Ext.define('App.view.word.Index', {
     controller: 'word',
     requires : [
         'App.view.word.Grid',
-        'App.view.word.Add'
+        'App.view.word.Add',
+        'App.view.word.Edit'
     ],
     title: 'Words',
     iconCls: 'fa fa-language',
+    layout: 'fit',
     items : [{
         xtype : 'wordAdd'
     },{
-        xtype : 'wordlist'
+        xtype : 'wordEdit'
+    },{
+        xtype : 'wordlist',
+        flex : 1
     }],
     listeners : {
     }

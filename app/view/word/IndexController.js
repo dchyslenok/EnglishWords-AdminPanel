@@ -5,6 +5,7 @@ Ext.define('App.view.word.IndexController.js', {
 
     onItemSelected : function (sender, record) {
         this.lookupReference('btnEdit').enable();
+        this.lookupReference('btnDelete').enable();
     },
 
     onOpenAddForm : function () {
@@ -25,7 +26,6 @@ Ext.define('App.view.word.IndexController.js', {
         } else {
             form.getForm().findField('active').setValue(false);
         }
-
         form.show();
         grid.hide();
     },
@@ -62,6 +62,28 @@ Ext.define('App.view.word.IndexController.js', {
         }
     },
 
+
+    onEdit : function () {
+        var grid = this.lookupReference('wordList');
+        var form = this.lookupReference('wordEdit');
+        var formData = form.getForm().getValues();
+
+        var word = Ext.create('App.model.Word', {
+            'id' : formData.id
+        });
+        word.set('categorie_id', formData.categorie_id);
+        word.set('word', formData.word);
+        word.set('translate', formData.translate);
+        word.set('transcription', formData.transcription);
+        word.set('imgUrl', formData.imgUrl);
+        word.set('active', formData.active === 'on' ? 'T' : 'F');
+        word.save();
+
+        form.hide();
+        grid.show();
+        Ext.StoreManager.lookup('Word').reload();
+    },
+
     onDelete : function () {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onDeleteConfirm', this);
     },
@@ -78,9 +100,9 @@ Ext.define('App.view.word.IndexController.js', {
                     if (!response.result) {
                         Ext.Msg.alert('Status', response.massage);
                     }
+                    Ext.StoreManager.lookup('Word').reload();
                 }
             });
-            Ext.StoreManager.lookup('Categorie').reload();
         }
     },
 

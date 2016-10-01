@@ -2,41 +2,69 @@ Ext.define('App.view.word.Edit', {
     extend : 'Ext.form.Panel',
     xtype : 'wordEdit',
     title : 'Edit word',
-    iconCls : 'fa fa-pencil-square-o',
-    layout : 'form',
+    iconCls : 'fa fa-plus',
+    layout : 'hbox',
     reference : 'wordEdit',
     hidden : true,
     items : [{
-        xtype : 'combobox',
-        fieldLabel : 'Categorie',
-        emptyText : 'categorie',
-        name : 'categorie_id',
-        displayField : 'name',
-        valueField : 'id',
-        triggerAction : 'all',
-        queryMode : 'local',
-        forceSelection : true,
-        editable : false,
-        store : 'Categorie'
+        xtype : 'panel',
+        layout : 'form',
+        flex : 1,
+        items : [{
+            xtype : 'hidden',
+            name : 'id'
+        },{
+            xtype : 'combobox',
+            fieldLabel : 'Categorie',
+            emptyText : 'categorie',
+            name : 'categorie_id',
+            displayField : 'name',
+            valueField : 'id',
+            triggerAction : 'all',
+            queryMode : 'local',
+            forceSelection : true,
+            editable : false,
+            store : 'Categorie'
+        }, {
+            xtype : 'textfield',
+            fieldLabel : 'Word',
+            name : 'word',
+            allowBlank : false
+        }, {
+            xtype : 'textfield',
+            fieldLabel : 'Translate',
+            name : 'translate',
+            allowBlank : false
+        }, {
+            xtype : 'textfield',
+            fieldLabel : 'Transcription',
+            name : 'transcription'
+        }, {
+            xtype : 'textfield',
+            reference : 'imgUrlEdit',
+            fieldLabel : 'Image url',
+            name : 'imgUrl',
+            editable : false,
+            allowBlank : false
+        },{
+            xtype : 'checkbox',
+            fieldLabel : 'Active',
+            name : 'active',
+            value : false
+        }]
     }, {
-        xtype : 'textfield',
-        fieldLabel : 'Word',
-        name : 'word',
-        allowBlank : false
-    }, {
-        xtype : 'textfield',
-        fieldLabel : 'Translate',
-        name : 'translate',
-        allowBlank : false
-    }, {
-        xtype : 'textfield',
-        fieldLabel : 'Transcription',
-        name : 'transcription'
-    }, {
-        xtype : 'textfield',
-        fieldLabel : 'Image url',
-        name : 'imgUrl',
-        allowBlank : false
+        xtype: 'image',
+        reference: 'imageEdit',
+        src: 'resources/images/selectImage.jpg',
+        width: 201,
+        height: 201,
+        margin: 10,
+        style: 'border: 5px solid #0097a7',
+        listeners: {
+            el: {
+                click: 'onUploadFileEdit'
+            }
+        }
     }],
     buttons : [{
         xtype : 'button',

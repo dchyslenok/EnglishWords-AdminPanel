@@ -23,7 +23,6 @@ Ext.define('App.view.categorie.IndexController.js', {
         var image = this.lookupReference('imageEdit');
         image.setSrc(record.data.imgUrl);
         form.getForm().setValues(record.data);
-        ImgUrl.update('<img src="'+ record.data.imgUrl +'" style="width:201.33px;height:201.33px; border: solid 5px #0097a7;">');
         if(record.data.active === 'T') {
             form.getForm().findField('active').setValue(true);
         } else {
