@@ -13,9 +13,21 @@ Ext.define('App.view.word.IndexController.js', {
     },
 
     onOpenEditForm : function () {
-        var form = this.lookupReference('wordEdit')
-        this.lookupReference('wordList').hide();
+        var form = this.lookupReference('wordEdit');
+        var grid = this.lookupReference('wordList');
+        var id = grid.getSelectionModel().getSelection()[0].data.id;
+        var record = Ext.StoreMgr.lookup("Word").getById(id);
+        var image = this.lookupReference('imageEdit');
+        image.setSrc(record.data.imgUrl);
+        form.getForm().setValues(record.data);
+        if(record.data.active === 'T') {
+            form.getForm().findField('active').setValue(true);
+        } else {
+            form.getForm().findField('active').setValue(false);
+        }
+
         form.show();
+        grid.hide();
     },
 
     onCancelAdd : function () {

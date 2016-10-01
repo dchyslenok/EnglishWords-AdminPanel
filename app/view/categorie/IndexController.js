@@ -20,7 +20,8 @@ Ext.define('App.view.categorie.IndexController.js', {
         var grid = this.lookupReference('categorieList');
         var id = grid.getSelectionModel().getSelection()[0].data.id;
         var record = Ext.StoreMgr.lookup("Categorie").getById(id);
-        var ImgUrl = this.lookupReference('imageEdit');
+        var image = this.lookupReference('imageEdit');
+        image.setSrc(record.data.imgUrl);
         form.getForm().setValues(record.data);
         ImgUrl.update('<img src="'+ record.data.imgUrl +'" style="width:201.33px;height:201.33px; border: solid 5px #0097a7;">');
         if(record.data.active === 'T') {
