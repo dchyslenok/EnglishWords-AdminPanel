@@ -11,5 +11,11 @@ Ext.define('App.view.main.MainController', {
         if (choice === 'yes') {
             //
         }
+    },
+
+    login : function () {
+        var login = Ext.create('App.view.main.Login', function (result) {
+        });
+        login.show();
     }
 });

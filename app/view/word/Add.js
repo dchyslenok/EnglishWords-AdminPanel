@@ -29,20 +29,25 @@ Ext.define('App.view.word.Add', {
             allowBlank : false
         }, {
             xtype : 'textfield',
-            fieldLabel : 'Translate',
-            name : 'translate',
-            allowBlank : false
-        }, {
-            xtype : 'textfield',
             fieldLabel : 'Transcription',
             name : 'transcription'
         }, {
+            xtype : 'textfield',
+            fieldLabel : 'Translate',
+            name : 'translate',
+            allowBlank : false
+        },{
             xtype : 'textfield',
             reference : 'imgUrlAdd',
             fieldLabel : 'Image url',
             name : 'imgUrl',
             editable : false,
-            allowBlank : false
+            allowBlank : false,
+            listeners: {
+                el: {
+                    click: 'onUploadFileAdd'
+                }
+            }
         }]
     }, {
         xtype: 'image',

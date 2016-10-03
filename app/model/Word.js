@@ -15,6 +15,6 @@ Ext.define('App.model.Word', {
 
     proxy: {
         type: 'rest',
-        url : 'http://englishwords/api_v1/word'
+        url : '/api_v1/word'
     }
 });

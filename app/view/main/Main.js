@@ -8,6 +8,7 @@ Ext.define('App.view.main.Main', {
 
         'App.view.main.MainController',
         'App.view.main.Uploader',
+        'App.view.main.Login',
         'App.view.main.MainModel',
         'App.view.categorie.Index',
         'App.view.word.Index'
@@ -71,11 +72,33 @@ Ext.define('App.view.main.Main', {
     },
 
     items: [{
-        xtype : 'categorie'
-    },{
-        xtype : 'word'
-    },{
+        xtype: 'categorie'
+    }, {
+        xtype: 'word'
+    }, {
         title: 'Settings',
-        iconCls: 'fa-cog'
+        iconCls: 'fa-cog',
+        items: [{
+            xtype: 'button',
+            text: 'Login',
+            iconCls: 'x-fa fa-angle-right',
+            handler: 'login'
+        }, {
+            xtype: 'button',
+            text: 'Logout',
+            iconCls: 'x-fa fa-angle-right',
+            handler: function () {
+                Ext.Ajax.request({
+                    url: '/api_v1/logout',
+                    method: 'get',
+                    success: function(response, opts) {
+
+                    },
+                    failure: function(response, opts) {
+                        Ext.Msg.alert('Status', 'failure.');
+                    }
+                });
+            }
+        }]
     }]
 });

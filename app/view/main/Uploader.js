@@ -12,6 +12,7 @@ Ext.define('App.view.main.Uploader', {
       itemId: 'tab',
       xtype: 'tabpanel',
       plain: true,
+      activeTab: 1,
       items: [{
         itemId: 'tab1',
         xtype : 'form',
@@ -65,7 +66,7 @@ Ext.define('App.view.main.Uploader', {
 
               FR.onload = function (e) {
                 Ext.Ajax.request({
-                  url: 'http://englishwords/api_v1/upload/binary',
+                  url: '/api_v1/upload/binary',
                   method: 'POST',
                   params: {
                     data: e.target.result,

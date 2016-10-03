@@ -21,7 +21,12 @@ Ext.define('App.view.categorie.Add', {
             fieldLabel : 'Image url',
             name : 'imgUrl',
             editable : false,
-            allowBlank : false
+            allowBlank : false,
+            listeners: {
+                el: {
+                    click: 'onUploadFileAdd'
+                }
+            }
         }]
     }, {
         xtype: 'image',

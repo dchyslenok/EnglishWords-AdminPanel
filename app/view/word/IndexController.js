@@ -34,6 +34,7 @@ Ext.define('App.view.word.IndexController.js', {
         this.lookupReference('wordAdd').reset();
         this.lookupReference('wordAdd').hide();
         this.lookupReference('wordList').show();
+        this.lookupReference('imageAdd').setSrc('resources/images/selectImage.jpg');
     },
 
     onCancelEdit : function () {
@@ -45,17 +46,14 @@ Ext.define('App.view.word.IndexController.js', {
     onAdd : function () {
         var form = this.lookupReference('wordAdd');
         var word = Ext.create('App.model.Word', form.getForm().getValues());
+        var me = this;
         word.save({
-            failure : function (record, operation) {
-                console.log('fail');
-            },
             success : function (record, operation) {
-                console.log('save');
+                me.lookupReference('imageAdd').setSrc('resources/images/selectImage.jpg');
+                form.reset();
             }
         });
-        form.reset();
         Ext.StoreManager.lookup('Word').reload();
-
         if (!form.hidden) {
             form.hide();
             this.lookupReference('wordList').show();

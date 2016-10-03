@@ -11,6 +11,6 @@ Ext.define('App.model.Categorie', {
 
     proxy: {
         type: 'rest',
-        url : 'http://englishwords/api_v1/categorie'
+        url : '/api_v1/categorie'
     }
 });
