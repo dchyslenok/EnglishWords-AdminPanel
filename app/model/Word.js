@@ -15,6 +15,10 @@ Ext.define('App.model.Word', {
 
     proxy: {
         type: 'rest',
-        url : '/api_v1/word'
+        url : '/api_v1/word',
+        reader: {
+            type: 'json',
+            rootProperty: 'data'
+        }
     }
 });

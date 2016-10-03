@@ -5,7 +5,8 @@ Ext.define('App.view.word.Index', {
     requires : [
         'App.view.word.Grid',
         'App.view.word.Add',
-        'App.view.word.Edit'
+        'App.view.word.Edit',
+        'Ext.toolbar.Paging'
     ],
     title: 'Words',
     iconCls: 'fa fa-language',
