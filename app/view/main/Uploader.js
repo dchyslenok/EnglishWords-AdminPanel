@@ -99,6 +99,6 @@ Ext.define('App.view.main.Uploader', {
       }]
     }];
     this.callParent(arguments);
-  },
+  }
 });
 
