@@ -8,9 +8,12 @@ Ext.define('App.model.Categorie', {
         {name: 'created_at', type: 'date'},
         {name: 'created_at', type: 'date'}
     ],
-
     proxy: {
         type: 'rest',
-        url : '/api_v1/categorie'
+        url : '/api_v1/categorie',
+        reader: {
+            type: 'json',
+            rootProperty: 'data'
+        }
     }
 });

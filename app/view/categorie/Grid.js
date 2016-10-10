@@ -1,5 +1,11 @@
 Ext.define('App.view.categorie.Grid', {
     extend : 'Ext.grid.Panel',
+    requires: [
+        'Ext.data.*',
+        'Ext.grid.*',
+        'Ext.util.*',
+        'Ext.toolbar.Paging'
+    ],
     xtype : 'categorielist',
     title : 'Categories',
     store : "Categorie",
@@ -57,7 +63,12 @@ Ext.define('App.view.categorie.Grid', {
         disabled: true,
         handler: 'onDelete'
     }],
-
+    dockedItems: [{
+        xtype: 'pagingtoolbar',
+        store: 'Categorie',
+        dock: 'bottom',
+        displayInfo: true
+    }],
     listeners : {
         select : 'onItemSelected'
     }

@@ -12,7 +12,6 @@ Ext.define('App.model.Word', {
         {name: 'created_at', type: 'date'},
         {name: 'categorie',  type: 'auto'}
     ],
-
     proxy: {
         type: 'rest',
         url : '/api_v1/word',
