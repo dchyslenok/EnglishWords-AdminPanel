@@ -65,6 +65,7 @@ Ext.define('App.view.word.IndexController.js', {
         var grid = this.lookupReference('wordList');
         var form = this.lookupReference('wordEdit');
         var formData = form.getForm().getValues();
+        console.log(formData);
 
         var word = Ext.create('App.model.Word', {
             'id' : formData.id
@@ -75,6 +76,7 @@ Ext.define('App.view.word.IndexController.js', {
         word.set('transcription', formData.transcription);
         word.set('imgUrl', formData.imgUrl);
         word.set('active', formData.active === 'on' ? 'T' : 'F');
+        word.set('content', formData.content);
         word.save();
 
         form.hide();

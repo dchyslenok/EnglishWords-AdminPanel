@@ -10,7 +10,8 @@ Ext.define('App.model.Word', {
         {name: 'active', type: 'string'},
         {name: 'created_at', type: 'date'},
         {name: 'created_at', type: 'date'},
-        {name: 'categorie',  type: 'auto'}
+        {name: 'categorie',  type: 'auto'},
+        {name: 'content',  type: 'string'}
     ],
     proxy: {
         type: 'rest',
