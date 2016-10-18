@@ -46,8 +46,7 @@ Ext.define('App.view.word.Edit', {
                 reference : 'imgUrlEdit',
                 fieldLabel : 'Image url',
                 name : 'imgUrl',
-                editable : false,
-                allowBlank : false
+                editable : false
             },{
                 xtype : 'checkbox',
                 fieldLabel : 'Active',

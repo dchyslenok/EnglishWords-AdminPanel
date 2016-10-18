@@ -65,7 +65,6 @@ Ext.define('App.view.word.IndexController.js', {
         var grid = this.lookupReference('wordList');
         var form = this.lookupReference('wordEdit');
         var formData = form.getForm().getValues();
-        console.log(formData);
 
         var word = Ext.create('App.model.Word', {
             'id' : formData.id

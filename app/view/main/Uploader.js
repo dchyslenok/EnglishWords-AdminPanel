@@ -12,7 +12,6 @@ Ext.define('App.view.main.Uploader', {
       itemId: 'tab',
       xtype: 'tabpanel',
       plain: true,
-      activeTab: 1,
       items: [{
         itemId: 'tab1',
         xtype : 'form',
@@ -40,9 +39,24 @@ Ext.define('App.view.main.Uploader', {
           formBind : true,
           iconCls: 'fa fa-floppy-o',
           handler: function () {
+            me.mask('Load');
             var url = me.getComponent('tab').getComponent('tab1').getComponent('ImgUrl').getValue();
-            callbeck(url);
-            me.close();
+            Ext.Ajax.request({
+              url: '/api_v1/upload/url',
+              method: 'POST',
+              params: {
+                url: url
+              },
+              success: function (response, opts) {
+                var response = Ext.decode(response.responseText);
+                callbeck(response.url);
+                me.unmask();
+                me.close();
+              },
+              failure: function (response, opts) {
+                console.log('server-side failure with status code ' + response.status);
+              }
+            });
           }
         }]
       }, {
