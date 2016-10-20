@@ -4,12 +4,15 @@ Ext.define('App.view.word.Grid', {
         'Ext.data.*',
         'Ext.grid.*',
         'Ext.util.*',
-        'Ext.toolbar.Paging'
+        'Ext.toolbar.Paging',
     ],
     xtype: 'wordlist',
     title: 'Words',
     store: "Word",
     reference: 'wordList',
+    plugins : [{
+        ptype : 'gridfilters'
+    }],
     columns: [{
         text: 'Id',
         dataIndex: 'id',
@@ -17,7 +20,10 @@ Ext.define('App.view.word.Grid', {
     }, {
         text: 'Word',
         dataIndex: 'word',
-        flex: 1
+        flex: 1,
+        filter : {
+            type : 'string'
+        }
     }, {
         text: 'Translate',
         dataIndex: 'translate',
