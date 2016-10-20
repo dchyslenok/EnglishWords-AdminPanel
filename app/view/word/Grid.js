@@ -27,7 +27,10 @@ Ext.define('App.view.word.Grid', {
     }, {
         text: 'Translate',
         dataIndex: 'translate',
-        flex: 1
+        flex: 1,
+        filter : {
+            type : 'string'
+        }
     }, {
         header: 'Image',
         dataIndex: 'imgUrl',
@@ -37,11 +40,17 @@ Ext.define('App.view.word.Grid', {
     }, {
         text: 'Data create',
         dataIndex: 'created_at',
-        renderer: Ext.util.Format.dateRenderer('d-m-Y')
+        renderer: Ext.util.Format.dateRenderer('d-m-Y'),
+        filter : {
+            type : 'date'
+        }
     }, {
         text: 'Date update',
         dataIndex: 'updated_at',
-        renderer: Ext.util.Format.dateRenderer('d-m-Y')
+        renderer: Ext.util.Format.dateRenderer('d-m-Y'),
+        filter : {
+            type : 'date'
+        }
     }, {
         header: 'Active',
         dataIndex: 'active',

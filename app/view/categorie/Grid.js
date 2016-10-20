@@ -10,6 +10,9 @@ Ext.define('App.view.categorie.Grid', {
     title : 'Categories',
     store : "Categorie",
     reference : 'categorieList',
+    plugins : [{
+        ptype : 'gridfilters'
+    }],
     columns : [{
         text : 'Id',
         dataIndex : 'id',
@@ -17,7 +20,10 @@ Ext.define('App.view.categorie.Grid', {
     }, {
         text : 'Name',
         dataIndex : 'name',
-        flex : 1
+        flex : 1,
+        filter : {
+            type : 'string'
+        }
     }, {
         header : 'Image',
         dataIndex : 'imgUrl',
@@ -27,11 +33,17 @@ Ext.define('App.view.categorie.Grid', {
     }, {
         text : 'Data create',
         dataIndex : 'created_at',
-        renderer : Ext.util.Format.dateRenderer('d-m-Y')
+        renderer : Ext.util.Format.dateRenderer('d-m-Y'),
+        filter : {
+            type : 'date'
+        }
     }, {
         text : 'Date update',
         dataIndex : 'updated_at',
-        renderer : Ext.util.Format.dateRenderer('d-m-Y')
+        renderer : Ext.util.Format.dateRenderer('d-m-Y'),
+        filter : {
+            type : 'date'
+        }
     }, {
         header : 'Active',
         dataIndex : 'active',
