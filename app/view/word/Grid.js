@@ -13,6 +13,13 @@ Ext.define('App.view.word.Grid', {
     plugins : [{
         ptype : 'gridfilters'
     }],
+    tools: [
+        {
+            type:'search',
+            tooltip: 'Get search',
+            callback: 'search'
+        }
+    ],
     columns: [{
         text: 'Id',
         dataIndex: 'id',
@@ -40,17 +47,11 @@ Ext.define('App.view.word.Grid', {
     }, {
         text: 'Data create',
         dataIndex: 'created_at',
-        renderer: Ext.util.Format.dateRenderer('d-m-Y'),
-        filter : {
-            type : 'date'
-        }
+        renderer: Ext.util.Format.dateRenderer('d-m-Y')
     }, {
         text: 'Date update',
         dataIndex: 'updated_at',
-        renderer: Ext.util.Format.dateRenderer('d-m-Y'),
-        filter : {
-            type : 'date'
-        }
+        renderer: Ext.util.Format.dateRenderer('d-m-Y')
     }, {
         header: 'Active',
         dataIndex: 'active',
@@ -92,5 +93,4 @@ Ext.define('App.view.word.Grid', {
     listeners: {
         select: 'onItemSelected'
     }
-})
-;
+});

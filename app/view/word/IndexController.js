@@ -125,5 +125,46 @@ Ext.define('App.view.word.IndexController.js', {
             ImgUrl.setValue(url);
         });
         uploader.show();
+    },
+
+    onCategorieSelected : function (el, record) {
+        var store = Ext.StoreMgr.lookup("Word");
+        store.getProxy().setExtraParam('categorie_id', record.get('id'));
+        store.reload();
+    },
+
+    search : function () {
+        var form = this.lookupReference('wordSearch');
+        if (form.hidden) {
+            form.show();
+        } else {
+            form.hide();
+        }
+    },
+
+    onSearchClear : function () {
+        var form = this.lookupReference('wordSearch');
+        var store = Ext.StoreMgr.lookup("Word");
+        store.getProxy().setExtraParam('categorie_id', null);
+        store.getProxy().setExtraParam('search', null);
+        form.reset();
+        store.reload();
+    },
+
+    onSearch : function () {
+        var form = this.lookupReference('wordSearch');
+        var store = Ext.StoreMgr.lookup("Word");
+        var formData = form.getForm().getValues();
+
+        store.getProxy().setExtraParam('categorie_id', formData.categorie_id);
+        store.getProxy().setExtraParam('search', formData.search);
+
+        store.reload();
+    },
+
+    onSearchKeypress : function (el, eventObject) {
+        if (eventObject.getCharCode() == Ext.EventObject.ENTER) {
+            this.onSearch();
+        }
     }
 });

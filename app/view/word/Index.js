@@ -6,18 +6,24 @@ Ext.define('App.view.word.Index', {
         'App.view.word.Grid',
         'App.view.word.Add',
         'App.view.word.Edit',
+        'App.view.word.Search',
         'Ext.toolbar.Paging'
     ],
     title: 'Words',
     iconCls: 'fa fa-language',
-    layout: 'fit',
+    layout: 'border',
     items : [{
-        xtype : 'wordAdd'
+        xtype : 'wordAdd',
+        region: 'north'
     },{
-        xtype : 'wordEdit'
+        xtype : 'wordEdit',
+        region: 'north'
+    },{
+        xtype : 'wordSearch',
+        region: 'north'
     },{
         xtype : 'wordlist',
-        flex : 1
+        region: 'center'
     }],
     listeners : {
     }

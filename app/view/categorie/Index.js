@@ -10,13 +10,16 @@ Ext.define('App.view.categorie.Index', {
     ],
     title: 'Categories',
     iconCls: 'fa fa-tags',
-    layout: 'fit',
+    layout: 'border',
     items : [{
-        xtype : 'categorieAdd'
+        xtype : 'categorieAdd',
+        region: 'north'
     },{
-        xtype : 'categorieEdit'
+        xtype : 'categorieEdit',
+        region: 'north'
     },{
-        xtype : 'categorielist'
+        xtype : 'categorielist',
+        region: 'center'
     }],
     listeners : {
     }
