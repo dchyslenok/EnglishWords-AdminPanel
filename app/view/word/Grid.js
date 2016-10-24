@@ -4,7 +4,7 @@ Ext.define('App.view.word.Grid', {
         'Ext.data.*',
         'Ext.grid.*',
         'Ext.util.*',
-        'Ext.toolbar.Paging',
+        'Ext.toolbar.Paging'
     ],
     xtype: 'wordlist',
     title: 'Words',

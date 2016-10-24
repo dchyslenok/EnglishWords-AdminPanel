@@ -6,11 +6,14 @@ Ext.define('App.view.word.IndexController.js', {
     onItemSelected : function (sender, record) {
         this.lookupReference('btnEdit').enable();
         this.lookupReference('btnDelete').enable();
+        !this.lookupReference('wordSearch').hidden ? this.lookupReference('wordSearch').hide() : null;
+
     },
 
     onOpenAddForm : function () {
         this.lookupReference('wordAdd').show();
         this.lookupReference('wordList').hide();
+        !this.lookupReference('wordSearch').hidden ? this.lookupReference('wordSearch').hide() : null;
     },
 
     onOpenEditForm : function () {

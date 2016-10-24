@@ -76,7 +76,8 @@ Ext.define('App.view.word.Edit', {
                 xtype: 'htmleditor',
                 fieldLabel : 'Page2',
                 labelAlign: 'top',
-                name: 'content'
+                name: 'content',
+                margin : 10
             }]
         }]
     }],
