@@ -69,25 +69,14 @@ Ext.define('App.view.word.Edit', {
     }]
   }, {
     xtype: 'panel',
+    layout: 'fit',
     items: [{
-      xtype: 'container',
-      layout: 'fit',
-      items: [{
-        xtype: 'htmleditor',
-        fieldLabel: 'Page2',
-        labelAlign: 'top',
-        name: 'content',
-        margin: 10,
-        listeners: {
-          'initialize': function(editor) {
-            editor.getEditorBody().onpaste = function (event) {
-              setTimeout(function () {
-                editor.setValue(editor.getValue().replace(/<(?:.|\n)*?>/gm, ''));
-              },0);
-            };
-          }
-        }
-      }]
+      xtype: 'textarea',
+      fieldLabel: 'Examples of using',
+      labelAlign: 'top',
+      name: 'content',
+      height: 250,
+      margin: 10
     }]
   }],
   buttons: [{
